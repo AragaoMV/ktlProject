@@ -1,5 +1,6 @@
 package com.marcos.ktlproject.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.marcos.ktlproject.data.pojo.ReceitaDetail
 import com.marcos.ktlproject.databinding.FragmentHomeBinding
+import com.marcos.ktlproject.ui.activities.ReceitaActivity
 import com.marcos.ktlproject.viewModel.HomeViewModel
 
 
@@ -35,6 +37,14 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         homeMvvm.getRandomReceita()
         observeRandomMeal()
+        onRandomReceitaClick()
+    }
+
+    private fun onRandomReceitaClick() {
+        binding.cardview.setOnClickListener{
+            val intent = Intent(activity, ReceitaActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun observeRandomMeal() {
