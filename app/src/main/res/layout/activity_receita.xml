@@ -36,13 +36,14 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/btn_favoritos"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:src="@drawable/favorite_menu_icon"
-    android:backgroundTint="@color/primary"
+    android:backgroundTint="@color/accent"
     app:backgroundTint="@color/black"
     app:layout_anchor="@id/appbar"
-    app:layout_anchorGravity="bottom|end"
+    app:layout_anchorGravity="top|end"
     android:layout_marginEnd="@dimen/_10sdp"/>
 
     <androidx.core.widget.NestedScrollView
@@ -66,7 +67,7 @@
                 android:id="@+id/descResceita">
 
                 <TextView
-
+                    android:id="@+id/descCategotiaReceita"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Categoria"
@@ -77,14 +78,15 @@
                     android:layout_weight="1"/>
 
                 <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Região"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:drawableLeft="@drawable/baseline_location_on_24"
-                android:drawableTint="@color/black"
-                android:layout_weight="1"/>
+                    android:id="@+id/descLocalReceita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Região"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:drawableLeft="@drawable/baseline_location_on_24"
+                    android:drawableTint="@color/black"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
@@ -106,18 +108,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Modo de Preparo"
+                android:fontFamily="sans-serif"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tituloDetalhes"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
+                android:textSize="@dimen/_10sdp"
                 />
+
 
             
         </androidx.constraintlayout.widget.ConstraintLayout>
         
     </androidx.core.widget.NestedScrollView>
-    
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom"
+        android:visibility="gone"
+        />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
