@@ -64,7 +64,6 @@ class ReceitaActivity : AppCompatActivity() {
     }
 
     private fun loading(){
-        binding.btnFavoritos.visibility = View.INVISIBLE
         binding.modopreparo.visibility = View.INVISIBLE
         binding.tituloDetalhes.visibility = View.INVISIBLE
         binding.descCategotiaReceita.visibility = View.INVISIBLE
@@ -72,7 +71,6 @@ class ReceitaActivity : AppCompatActivity() {
         binding.progressbar.visibility = View.VISIBLE
     }
     private fun onResponse(){
-        binding.btnFavoritos.visibility = View.VISIBLE
         binding.modopreparo.visibility = View.VISIBLE
         binding.tituloDetalhes.visibility = View.VISIBLE
         binding.descCategotiaReceita.visibility = View.VISIBLE

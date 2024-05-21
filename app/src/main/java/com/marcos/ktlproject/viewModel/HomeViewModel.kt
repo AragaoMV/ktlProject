@@ -16,6 +16,7 @@ import retrofit2.Response
 class HomeViewModel():ViewModel() {
 
     private var randomReceitaLiveData = MutableLiveData<Meals>()
+    private var popularItemsLiveData = MutableLiveData<List<Meals>>()
 
     fun getRandomReceita() {
         RetrofitInstance.api.getRandomMeal().enqueue(object : Callback<Meal> {
@@ -35,8 +36,26 @@ class HomeViewModel():ViewModel() {
         })
 
         }
+    fun getPopuplarItems(){
+        RetrofitInstance.api.getPopularReceita("Beef").enqueue(object :Callback<com.marcos.ktlproject.data.pojo.category.Meal>{
+            override fun onResponse(call: Call<com.marcos.ktlproject.data.pojo.category.Meal>, response: Response<com.marcos.ktlproject.data.pojo.category.Meal>) {
+                if(response.body()!= null){
+                    popularItemsLiveData.value = response.body()!!.meals
+                }
+            }
+
+            override fun onFailure(call: Call<com.marcos.ktlproject.data.pojo.category.Meal>, t: Throwable) {
+                Log.d("HomeFragment", t.message.toString())
+            }
+        })
+
+    }
     fun observeRandomReceitaLiveData():LiveData<Meals>{
         return randomReceitaLiveData
     }
+
+    fun observePopularItemsLiveData(): LiveData<List<Meals>> {
+        return popularItemsLiveData
     }
+}
 

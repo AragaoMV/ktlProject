@@ -35,17 +35,6 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/btn_favoritos"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/favorite_menu_icon"
-    android:backgroundTint="@color/accent"
-    app:backgroundTint="@color/black"
-    app:layout_anchor="@id/appbar"
-    app:layout_anchorGravity="top|end"
-    android:layout_marginEnd="@dimen/_10sdp"/>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

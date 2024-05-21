@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.activities.MainActivity"
+    android:background="@color/offwhite"
     >
     
     <androidx.core.widget.NestedScrollView
@@ -84,7 +85,7 @@
         android:id="@+id/subtitulo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:fontFamily="sans-serif"
         android:text="Receitas Populares"
         android:textColor="@color/black"
@@ -96,6 +97,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pop_recview"
         android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_height="@dimen/_90sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_10sdp"
@@ -105,7 +107,7 @@
         android:id="@+id/subtitulo3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:fontFamily="sans-serif"
         android:text="Categorias"
         android:textColor="@color/black"
@@ -117,6 +119,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         app:cardCornerRadius="@dimen/_5sdp"
