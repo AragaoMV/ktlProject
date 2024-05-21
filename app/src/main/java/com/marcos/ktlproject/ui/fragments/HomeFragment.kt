@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.marcos.ktlproject.data.pojo.ReceitaDetail
+import com.marcos.ktlproject.data.pojo.Meals
 import com.marcos.ktlproject.databinding.FragmentHomeBinding
 import com.marcos.ktlproject.ui.activities.ReceitaActivity
 import com.marcos.ktlproject.viewModel.HomeViewModel
@@ -48,14 +48,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeRandomMeal() {
-        homeMvvm.observeRandomReceitaLiveData().observe(viewLifecycleOwner,object : Observer<ReceitaDetail>{
-            override fun onChanged(value: ReceitaDetail) {
-                Glide.with(this@HomeFragment)
-                    .load(value.strMealThumb)
-                    .into(binding.cardimg)
-            }
-        })
 
+        homeMvvm.observeRandomReceitaLiveData().observe(viewLifecycleOwner, { mealList ->
+            Glide.with(this@HomeFragment)
+                .load(mealList.get(0).strMealThumb)
+                .into(binding.cardimg)
+        })
     }
 
 }

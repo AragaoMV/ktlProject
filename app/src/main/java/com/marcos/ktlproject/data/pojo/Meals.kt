@@ -1,6 +1,6 @@
 package com.marcos.ktlproject.data.pojo
 
-data class ReceitaDetail(
+data class Meals(
     val dateModified: Any,
     val idMeal: String,
     val strArea: String,
