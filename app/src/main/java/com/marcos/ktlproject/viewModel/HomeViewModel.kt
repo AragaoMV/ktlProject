@@ -1,6 +1,7 @@
 package com.marcos.ktlproject.viewModel
 
 
+
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,31 +13,30 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel() : ViewModel() {
+class HomeViewModel():ViewModel() {
 
-    private var randomReceitaLiveData = MutableLiveData<List<Meals>>()
+    private var randomReceitaLiveData = MutableLiveData<Meals>()
 
     fun getRandomReceita() {
         RetrofitInstance.api.getRandomMeal().enqueue(object : Callback<Meal> {
             override fun onResponse(call: Call<Meal>, response: Response<Meal>) {
-                println("ResponseHome >>>> ${response.body()}")
-                if (response.isSuccessful) {
-                    randomReceitaLiveData.value = response.body()!!.meals
+                if (response.body() != null) {
+                    val randomReceita: Meals = response.body()!!.meals[0]
+                    randomReceitaLiveData.value = randomReceita
+                    Log.d("API", "ID ${randomReceita.idMeal}E NOME${randomReceita.strMeal} DA API ")
                 } else {
                     return
                 }
             }
 
             override fun onFailure(call: Call<Meal>, t: Throwable) {
-                println("ResponseError>>>> ${t.message}")
                 Log.d("HomeFragment", t.message.toString())
             }
         })
 
-    }
-
-    fun observeRandomReceitaLiveData(): LiveData<List<Meals>> {
+        }
+    fun observeRandomReceitaLiveData():LiveData<Meals>{
         return randomReceitaLiveData
     }
-}
+    }
 

@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
 
         homeMvvm.observeRandomReceitaLiveData().observe(viewLifecycleOwner, { mealList ->
             Glide.with(this@HomeFragment)
-                .load(mealList.get(0).strMealThumb)
+                .load(mealList.strMealThumb)
                 .into(binding.cardimg)
         })
     }
