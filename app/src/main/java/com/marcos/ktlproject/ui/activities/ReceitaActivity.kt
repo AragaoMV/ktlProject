@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.marcos.ktlproject.R
-import com.marcos.ktlproject.data.pojo.receitas.Meals
+import com.marcos.ktlproject.data.pojo.Meals
 import com.marcos.ktlproject.databinding.ActivityReceitaBinding
 import com.marcos.ktlproject.ui.fragments.HomeFragment
 import com.marcos.ktlproject.viewModel.ReceitaDetalheViewModel

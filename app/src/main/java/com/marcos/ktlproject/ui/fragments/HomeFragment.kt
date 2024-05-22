@@ -2,17 +2,15 @@ package com.marcos.ktlproject.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.marcos.ktlproject.adapters.PopularAdapter
-import com.marcos.ktlproject.data.pojo.receitas.Meals
+import com.marcos.ktlproject.data.pojo.Meals
 import com.marcos.ktlproject.databinding.FragmentHomeBinding
 import com.marcos.ktlproject.ui.activities.ReceitaActivity
 import com.marcos.ktlproject.viewModel.HomeViewModel
@@ -71,22 +69,10 @@ class HomeFragment : Fragment() {
         homeMvvm.getPopuplarItems()
         observePopularItemsLiveData()
 
-        homeMvvm.getCategorias()
-        observeCategoriasLiveData()
+
 
     }
 
-
-
-    private fun observeCategoriasLiveData() {
-        homeMvvm.observeCategoriesLiveData().observe(viewLifecycleOwner, Observer{categories ->
-            categories.forEach { category->
-                Log.d("CATEGORIAS", category.strCategory)
-            }
-
-
-        })
-    }
 
 
     private fun preparePopItemRV() {

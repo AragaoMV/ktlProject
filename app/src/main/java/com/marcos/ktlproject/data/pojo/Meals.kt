@@ -1,4 +1,4 @@
-package com.marcos.ktlproject.data.pojo.receitas
+package com.marcos.ktlproject.data.pojo
 
 data class Meals(
     val dateModified: Any,
