@@ -14,6 +14,6 @@ interface ReceitaApi {
     fun getReceitaDetalhes(@Query("i") id: String): Call<Meal>
 
     @GET("filter.php?")
-    fun getPopularReceita(@Query("c") categoryName: String): Call<com.marcos.ktlproject.data.pojo.popreceita.Meal>
+    fun getPopularReceita(@Query("c") categoryName: String): Call<com.marcos.ktlproject.data.pojo.category.Meal>
 
 }

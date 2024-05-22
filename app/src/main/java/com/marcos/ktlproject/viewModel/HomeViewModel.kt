@@ -37,14 +37,14 @@ class HomeViewModel():ViewModel() {
 
         }
             fun getPopuplarItems(){
-                RetrofitInstance.api.getPopularReceita("Beef").enqueue(object :Callback<com.marcos.ktlproject.data.pojo.popreceita.Meal>{
-                    override fun onResponse(call: Call<com.marcos.ktlproject.data.pojo.popreceita.Meal>, response: Response<com.marcos.ktlproject.data.pojo.popreceita.Meal>) {
+                RetrofitInstance.api.getPopularReceita("Beef").enqueue(object :Callback<com.marcos.ktlproject.data.pojo.category.Meal>{
+                    override fun onResponse(call: Call<com.marcos.ktlproject.data.pojo.category.Meal>, response: Response<com.marcos.ktlproject.data.pojo.category.Meal>) {
                         if(response.body()!= null){
                             popularItemsLiveData.value = response.body()!!.meals
                         }
                     }
 
-                    override fun onFailure(call: Call<com.marcos.ktlproject.data.pojo.popreceita.Meal>, t: Throwable) {
+                    override fun onFailure(call: Call<com.marcos.ktlproject.data.pojo.category.Meal>, t: Throwable) {
                         Log.d("HomeFragment", t.message.toString())
                     }
                 })

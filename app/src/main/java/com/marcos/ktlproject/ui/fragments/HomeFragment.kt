@@ -69,8 +69,6 @@ class HomeFragment : Fragment() {
         homeMvvm.getPopuplarItems()
         observePopularItemsLiveData()
 
-
-
     }
 
 
